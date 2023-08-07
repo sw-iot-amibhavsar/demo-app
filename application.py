@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 
 # print a nice greeting.
@@ -5,12 +6,13 @@ def say_hello(username = "World"):
     return '<p>Hello %s!</p>\n' % username
 
 # some bits of text for the page.
+keyvalue = os.environ.get('Key1')
 header_text = '''
     <html>\n<head> <title>EB Flask Test</title> </head>\n<body>'''
 instructions = '''
     <p><em>Hint</em>: This is a RESTful web service! Append a username
     to the URL (for example: <code>/Thelonious</code>) to say hello to
-    someone specific.Change with value</p>\n'''
+    someone specific.Change with value</p>\n''' + keyvalue
 home_link = '<p><a href="/">Back</a></p>\n'
 footer_text = '</body>\n</html>'
 
